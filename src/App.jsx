@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { PortfolioWrapper } from './components/Portfolio';
+import Portfolio from './components/Portfolio';
 
 export function App() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/*" element={<PortfolioWrapper />} />
+          <Route path="/*" element={<Portfolio />} />
         </Routes>
       </BrowserRouter>
     );

@@ -1,7 +1,8 @@
-$backgroundColorLight: #d0d0d0;
+// General Styles
+$backgroundColorLight: #e0e0e0;
 $backgroundColorDark: #222222;
 
-$cardColorLight: #c0c0c0;
+$cardColorLight: #d0d0d0;
 $cardColorDark: #333333;
 
 $cardHoverColorLight: #aa88ff;
@@ -10,17 +11,19 @@ $cardHoverColorDark: #666666;
 $cardActiveColorLight: #bb99ff;
 $cardActiveColorDark: #777777;
 
-$cardBorderLight: #333333;
-$cardBorderDark: #d0d0d0;
+$cardBorderLight: #909090;
+$cardBorderDark: #e0e0e0;
 
-$cardInnerBorder: #909090;
+$cardInnerBorder: #a0a0a0;
 
-$cardShadow: #000000;
+$cardShadowLight: #aa88ff;
+$cardShadowDark: #000000;
 
 $fontColorLight: #333333;
-$fontColorDark: #d0d0d0;
+$fontColorDark: #e0e0e0;
 
-$accentColor: #aa88ff;
+$accentColorLight: #8866dd;
+$accentColorDark: #aa88ff;
 
 * {
   box-sizing: border-box;
@@ -40,9 +43,24 @@ $accentColor: #aa88ff;
 
 @mixin title {
   font-weight: 500;
-  font-size: 30px;
+  font-size: 40px;
 }
 
+.accent {
+  @media (prefers-color-scheme: light) {
+    color: $accentColorLight;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: $accentColorDark;
+  }
+}
+
+.container-fluid {
+  @include center;
+}
+
+// index.js
 #root {
   font-family: "Poppins", serif;
   @include paragraph;
@@ -61,24 +79,17 @@ $accentColor: #aa88ff;
   }
 }
 
-.accent {
-  @include title;
-  color: $accentColor;
-}
-
-.container-fluid {
-  @include center;
-}
+// Portfolio.jsx
 
 #main-card {
-  box-shadow: 0px 0px 5px 2px $cardShadow;
-
   @media (prefers-color-scheme: light) {
+    box-shadow: 0px 0px 5px 2px $cardShadowLight;
     background-color: $cardColorLight;
     border: 1px solid $cardBorderLight;
   }
 
   @media (prefers-color-scheme: dark) {
+    box-shadow: 0px 0px 5px 2px $cardShadowDark;
     background-color: $cardColorDark;
     border: 1px solid $cardBorderDark;
   }
@@ -87,6 +98,7 @@ $accentColor: #aa88ff;
 .card-btn {
   width: 2em !important;
   height: 2em;
+  cursor: pointer;
   @include center;
 
   &:hover {
@@ -118,4 +130,57 @@ $accentColor: #aa88ff;
       background-color: $cardActiveColorDark;
     }
   }
+}
+
+// Home.jsx
+
+#profile-info {
+  padding: 0.5em;
+  border-bottom: 1px solid $cardInnerBorder;
+}
+
+#sections {
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+
+#profile-image {
+  border-radius: 50%;
+}
+
+.profile-section {
+  @include center;
+  flex-direction: column;
+  border-right: 1px solid $cardInnerBorder;
+  padding: 0.5em;
+  cursor: pointer;
+
+  &:last-of-type {
+    border-right: 0;
+  }
+
+  &:hover {
+    @media (prefers-color-scheme: light) {
+      background-color: $cardHoverColorLight;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $cardHoverColorDark;
+    }
+  }
+
+  &:active {
+    @media (prefers-color-scheme: dark) {
+      background-color: $cardActiveColorLight;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $cardActiveColorDark;
+    }
+  }
+}
+
+.section-icon {
+  font-size: 40px;
+  margin: 0.25em;
 }
