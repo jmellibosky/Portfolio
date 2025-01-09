@@ -1,0 +1,121 @@
+$backgroundColorLight: #d0d0d0;
+$backgroundColorDark: #222222;
+
+$cardColorLight: #c0c0c0;
+$cardColorDark: #333333;
+
+$cardHoverColorLight: #aa88ff;
+$cardHoverColorDark: #666666;
+
+$cardActiveColorLight: #bb99ff;
+$cardActiveColorDark: #777777;
+
+$cardBorderLight: #333333;
+$cardBorderDark: #d0d0d0;
+
+$cardInnerBorder: #909090;
+
+$cardShadow: #000000;
+
+$fontColorLight: #333333;
+$fontColorDark: #d0d0d0;
+
+$accentColor: #aa88ff;
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin paragraph {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+@mixin title {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+#root {
+  font-family: "Poppins", serif;
+  @include paragraph;
+  margin: 0;
+  height: 100vh;
+  @include center;
+
+  @media (prefers-color-scheme: light) {
+    background-color: $backgroundColorLight;
+    color: $fontColorLight;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $backgroundColorDark;
+    color: $fontColorDark;
+  }
+}
+
+.accent {
+  @include title;
+  color: $accentColor;
+}
+
+.container-fluid {
+  @include center;
+}
+
+#main-card {
+  box-shadow: 0px 0px 5px 2px $cardShadow;
+
+  @media (prefers-color-scheme: light) {
+    background-color: $cardColorLight;
+    border: 1px solid $cardBorderLight;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $cardColorDark;
+    border: 1px solid $cardBorderDark;
+  }
+}
+
+.card-btn {
+  width: 2em !important;
+  height: 2em;
+  @include center;
+
+  &:hover {
+    @media (prefers-color-scheme: light) {
+      background-color: $cardHoverColorLight;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $cardHoverColorDark;
+    }
+  }
+
+  &:active {
+    @media (prefers-color-scheme: dark) {
+      background-color: $cardActiveColorLight;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $cardActiveColorDark;
+    }
+  }
+
+  &.active {
+    @media (prefers-color-scheme: light) {
+      background-color: $cardActiveColorLight;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      background-color: $cardActiveColorDark;
+    }
+  }
+}

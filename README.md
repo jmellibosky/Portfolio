@@ -1,7 +1,6 @@
-# Joaquín Mellibosky's Personal Portfolio
-_Explore my projects and technical knowledge_
+_This project is a work-in-progress and will be deployed on GitHub Pages once in the near future._
 
-## Description
+# Joaquín Mellibosky's Personal Portfolio
 Welcome to my personal portfolio. In this project you will get a grasp of my personal background, my skills, and some of the personal projects I've worked on.
 
 ## Technologies
