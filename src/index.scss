@@ -80,7 +80,6 @@ $accentColorDark: #aa88ff;
 }
 
 // Portfolio.jsx
-
 #main-card {
   @media (prefers-color-scheme: light) {
     box-shadow: 0px 0px 5px 2px $cardShadowLight;
@@ -133,7 +132,6 @@ $accentColorDark: #aa88ff;
 }
 
 // Home.jsx
-
 #profile-info {
   padding: 0.5em;
   border-bottom: 1px solid $cardInnerBorder;
