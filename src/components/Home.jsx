@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaUser, FaCode } from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next';
 
@@ -19,12 +18,12 @@ export default function Home({handleNavigation}) {
         </div>
         <div id="sections">
             <div className="row">
-                <div className="col profile-section" onClick={() => handleNavigation('/About')}>
+                <div className="col section" onClick={() => handleNavigation('/about')}>
                     <FaUser className="section-icon" />
                     <h5>{t('about_me')}</h5>
                     <a><span className="accent">{t('learn_more')}</span></a>
                 </div>
-                <div className="col profile-section" onClick={() => handleNavigation('/Projects')}>
+                <div className="col section" onClick={() => handleNavigation('/projects')}>
                     <FaCode className="section-icon" />
                     <h5>{t('my_projects')}</h5>
                     <a><span className="accent">{t('explore_my_creations')}</span></a>

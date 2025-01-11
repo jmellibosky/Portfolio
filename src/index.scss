@@ -60,6 +60,21 @@ $accentColorDark: #aa88ff;
   @include center;
 }
 
+.inner-redirect {
+  font-weight: 100;
+  text-decoration: underline 1px;
+  padding: 1em;
+  cursor: pointer;
+
+  @media (prefers-color-scheme: light) {
+    color: $fontColorLight;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: $fontColorDark;
+  }
+}
+
 // index.js
 #root {
   font-family: "Poppins", serif;
@@ -146,7 +161,7 @@ $accentColorDark: #aa88ff;
   border-radius: 50%;
 }
 
-.profile-section {
+.section {
   @include center;
   flex-direction: column;
   border-right: 1px solid $cardInnerBorder;
@@ -181,4 +196,132 @@ $accentColorDark: #aa88ff;
 .section-icon {
   font-size: 40px;
   margin: 0.25em;
+}
+
+// Projects.jsx
+#projects-info {
+  padding: 0.5em;
+  border-bottom: 1px solid $cardInnerBorder;
+}
+
+#projects {
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+
+.project-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+
+  &>* {
+    width: 85%;
+    @include center;
+  }
+}
+
+.carousel-control-prev {
+  justify-content: start !important;
+}
+
+.carousel-control-next {
+  justify-content: end !important;
+}
+
+// ProjectTemplate.jsx
+$demoFrameHeight: 70vh;
+
+#project-template {
+  padding: 0.5em;
+  @include center;
+  flex-direction: column;
+}
+
+#demo-frame {
+  height: $demoFrameHeight;
+  width: 100%;
+
+  @media (prefers-color-scheme: light) {
+    box-shadow: 0px 0px 5px 2px $accentColorLight;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    box-shadow: 0px 0px 5px 2px $accentColorDark;
+  }
+}
+
+// Airspace.jsx
+$airspaceAccentColor: #484C64;
+$airspaceAccentHoverColor: #585C74;
+$airspaceAccentActiveColor: #686C84;
+
+$airspaceHeaderColor: #424242;
+$airspaceBackgroundColor: #f7f7f7;
+
+#airspace {
+  height: $demoFrameHeight;
+  font-size: 12px;
+  background-color: $airspaceBackgroundColor;
+  color: $airspaceHeaderColor;
+}
+
+#airspace-nav {
+  background-color: $airspaceAccentColor;
+  height: $demoFrameHeight;
+  color: $airspaceBackgroundColor;
+  font-weight: 500;
+  width: auto;
+
+  & ul {
+    list-style-type: none;
+    padding: 0;
+    cursor: pointer;
+
+    &>ul {
+      padding-left: 1em;
+    }
+  }
+
+  & li {
+    padding: 0.15em;
+    border-bottom: 1px solid $airspaceAccentHoverColor;
+
+    &:hover {
+      background-color: $airspaceAccentHoverColor;
+    }
+
+    &:active {
+      background-color: $airspaceAccentActiveColor;
+    }
+  }
+}
+
+#airspace-header {
+  border-bottom: 1px solid $airspaceAccentColor
+}
+
+#airspace-main {
+  padding: 0.5em;
+}
+
+.btn-airspace {
+  padding: 0.1em 0.3em;
+  margin: 0.1em;
+  background-color: $airspaceAccentColor;
+  color: $airspaceBackgroundColor;
+  width: min-content;
+  height: 1.5em;
+  border-radius: 0.25em;
+  text-wrap-mode: nowrap;
+  cursor: pointer;
+  @include center;
+
+  &:hover {
+    background-color: $airspaceAccentHoverColor;
+  }
+
+  &:active {
+    background-color: $airspaceAccentActiveColor;
+  }
 }
